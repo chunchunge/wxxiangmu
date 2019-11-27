@@ -8,7 +8,9 @@
     height: 60rpx;
     border-radius: 10rpx;
     padding: 0 5rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#666;
 }
-.placeholders{
-    text-align: center;
-}
+

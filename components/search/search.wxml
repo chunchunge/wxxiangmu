@@ -1,5 +1,7 @@
 <view class="search">
-    <input type="text"  class="inputs" placeholder="搜索" placeholder-class="placeholders "/>
+    <view class="inputs">
+    搜索
+    </view>
     
       
 </view>

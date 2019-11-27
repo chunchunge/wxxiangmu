@@ -13,7 +13,10 @@ Page({
     data :{
         // 轮播图数组
         swiperList:[],
-        navsList:[]
+        // 导航数组
+        navsList:[],
+        // 楼层数组
+        floorList:[]
     },
     onLoad(){
         // 发送异步请求
@@ -26,16 +29,26 @@ Page({
                 })
             }
         }),
+        // 导航请求
         wx.request({
             url: 'https://api.zbztb.cn/api/public/v1/home/catitems',
             success: (result) => {
-                console.log(result.data.message);
+                // console.log(result.data.message);
                  this.setData({
                     navsList:result.data.message
                 })
             },
+        }),
+        // 请求楼层
+        wx.request({
+            url: 'https://api.zbztb.cn/api/public/v1/home/floordata',
+            success: (result) => {
+                console.log(result.data.message);
+                this.setData({
+                    floorList:result.data.message
+                })
+            },
         });
-          
           
     }
 })
