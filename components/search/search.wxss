@@ -1,1 +1,14 @@
-/* components/search/search.wxss */
+.search{
+   
+    background: #eb4450;
+    padding:15rpx;
+}
+.inputs{
+    background: #fff;
+    height: 60rpx;
+    border-radius: 10rpx;
+    padding: 0 5rpx;
+}
+.placeholders{
+    text-align: center;
+}

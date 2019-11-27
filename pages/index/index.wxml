@@ -13,5 +13,10 @@
 </swiper>
 </view>
   
-
+<view class="navs">
+    <view class="navList" wx:for="{{navsList}}" wx:key="name">
+      <image src="{{item.image_src}}"></image>
+    </view>
+</view>
+  
   

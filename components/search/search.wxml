@@ -1,2 +1,10 @@
-<!--components/search/search.wxml-->
-<text>components/search/search.wxml</text>
+<view class="search">
+    <input type="text"  class="inputs" placeholder="搜索" placeholder-class="placeholders "/>
+    
+      
+</view>
+  
+<view >
+    
+</view>
+  

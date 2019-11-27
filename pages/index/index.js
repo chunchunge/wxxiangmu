@@ -12,7 +12,8 @@
 Page({
     data :{
         // 轮播图数组
-        swiperList:[]
+        swiperList:[],
+        navsList:[]
     },
     onLoad(){
         // 发送异步请求
@@ -24,7 +25,17 @@ Page({
                     swiperList:result.data.message
                 })
             }
+        }),
+        wx.request({
+            url: 'https://api.zbztb.cn/api/public/v1/home/catitems',
+            success: (result) => {
+                console.log(result.data.message);
+                 this.setData({
+                    navsList:result.data.message
+                })
+            },
         });
+          
           
     }
 })

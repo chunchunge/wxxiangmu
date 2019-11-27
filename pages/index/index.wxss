@@ -1,3 +1,12 @@
-.swipers{
-    height:200rpx;
+
+.navs{
+    padding:10rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navList{
+    flex:25%;
+    height: 160rpx;
+    padding: 0 20rpx;
 }
