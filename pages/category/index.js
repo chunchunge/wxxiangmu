@@ -9,7 +9,9 @@ Page({
     leftMenus: [],
     // 右侧的内容 列表
     rightGoods: [],
-    currentIndex: 0
+    currentIndex: 0,
+    // 右侧滚动条的高度
+    scrollTop: 0
   },
   // 全局数据
   Cates: [],
@@ -30,7 +32,9 @@ Page({
       this.setData({
         currentIndex,
         // 右侧的内容
-        rightGoods: this.Cates[currentIndex].children
+        rightGoods: this.Cates[currentIndex].children,
+        // 控制右侧列表的滚动条的 距离的！！
+      scrollTop:0
       })   
       
   }

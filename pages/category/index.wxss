@@ -7,12 +7,12 @@
     width: 200rpx;
 
      /* 不超的时候就没有滚动条 超出了就有滚动条 */
-    overflow: auto;
+    overflow: hidden;
 }
 .cate_right{
     flex:1;
     
-    overflow: auto;
+    overflow: hidden;
 }
 .menu_item {
     height: 80rpx;
