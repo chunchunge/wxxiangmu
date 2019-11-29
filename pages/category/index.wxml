@@ -3,29 +3,21 @@
 </view>
 <view class="cate_view">
     <view class="cate_left">
-         <view class="menu_item" wx:for="{{leftMenus}}" wx:key="cat_id">{{item}}</view>
+         <view class="menu_item {{currentIndex===index?'active':''}}" wx:for="{{leftMenus}}" wx:key="cat_id" bindtap="handleMenuTap" data-index="{{index}}">{{item}}</view>
           
     </view>
     <view class="cate_right">
-        <view class="menu_main" wx:for="{{rightGoods}}" wx:key="cat_id">
+        <view class="menu_main " wx:for="{{rightGoods}}" wx:key="cat_id">
             <view class="goods_group_title"> / {{item.cat_name}} / </view>
-
             <view class="xiaotu" wx:for="{{item.children}}" wx:key="cat_id">
             <view class="somall">
                 <image class="imgs" src="{{item.cat_icon}}" mode="widthFix"  />
               <view class="wen">
-               {{item.cat_name}}
-                  
+               {{item.cat_name}}   
               </view>
+            </view> 
             </view>
-              
-            
-                
-                  
-            </view>
-              
         </view>
-          
     </view>
 </view>
   

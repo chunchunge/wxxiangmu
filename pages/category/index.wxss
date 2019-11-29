@@ -55,3 +55,7 @@
     justify-content: center;
     font-size: 26rpx;
 }
+.active {
+  border-left: 5rpx solid #eb4450;
+  color: #eb4450;
+}

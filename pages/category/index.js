@@ -8,7 +8,8 @@ Page({
     // 左侧的内容
     leftMenus: [],
     // 右侧的内容 列表
-    rightGoods: []
+    rightGoods: [],
+    currentIndex: 0
   },
   // 全局数据
   Cates: [],
@@ -18,12 +19,19 @@ Page({
       this.setData({
         // 获取对象中的某一项
         leftMenus:this.Cates.map(v=>v.cat_name),
-        rightGoods:this.Cates[0].children
+        rightGoods:this.Cates[this.data.currentIndex].children
         
       })
       console.log(this.data.rightGoods);
     })
-      
+  },
+    handleMenuTap(e) {
+      const currentIndex = e.currentTarget.dataset.index;
+      this.setData({
+        currentIndex,
+        // 右侧的内容
+        rightGoods: this.Cates[currentIndex].children
+      })   
       
   }
 })
