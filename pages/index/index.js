@@ -9,6 +9,8 @@
 ! 2 
 ? 3 
  */
+//  引入统一发送异步请求的函数
+import request from "../../request/request";
 Page({
     data :{
         // 轮播图数组
@@ -20,34 +22,31 @@ Page({
     },
     onLoad(){
         // 发送异步请求
-         wx.request({
-            url: 'https://api.zbztb.cn/api/public/v1/home/swiperdata',
-            success: (result) => {
+        request({ url: "home/swiperdata" })
+        .then(result =>{
                 // console.log(result.data.message);
                 this.setData({
                     swiperList:result.data.message
                 })
-            }
+            
         }),
         // 导航请求
-        wx.request({
-            url: 'https://api.zbztb.cn/api/public/v1/home/catitems',
-            success: (result) => {
+        request({ url: "home/catitems" })
+      .then(result => {
                 // console.log(result.data.message);
                  this.setData({
                     navsList:result.data.message
                 })
-            },
+            
         }),
         // 请求楼层
-        wx.request({
-            url: 'https://api.zbztb.cn/api/public/v1/home/floordata',
-            success: (result) => {
+        request({ url: "home/floordata" })
+      .then(result => {
                 console.log(result.data.message);
                 this.setData({
                     floorList:result.data.message
                 })
-            },
+            
         });
           
     }
