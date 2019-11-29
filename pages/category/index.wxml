@@ -3,21 +3,21 @@
 </view>
 <view class="cate_view">
     <scroll-view scroll-y scroll-top="{{scrollTop}}" class="cate_left">
-         <view class="menu_item {{currentIndex===index?'active':''}}" wx:for="{{leftMenus}}" wx:key="cat_id" bindtap="handleMenuTap" data-index="{{index}}">{{item}}</view>
-          
+        <view class="menu_item {{currentIndex===index?'active':''}}" wx:for="{{leftMenus}}" wx:key="cat_id"
+            bindtap="handleMenuTap" data-index="{{index}}">{{item}}</view>
+
     </scroll-view>
     <scroll-view scroll-y scroll-top="{{scrollTop}}" class="cate_right">
         <view class="menu_main " wx:for="{{rightGoods}}" wx:key="cat_id">
             <view class="goods_group_title"> / {{item.cat_name}} / </view>
             <view class="xiaotu" wx:for="{{item.children}}" wx:key="cat_id">
-            <view class="somall">
-                <image class="imgs" src="{{item.cat_icon}}" mode="widthFix"  />
-              <view class="wen">
-               {{item.cat_name}}   
-              </view>
-            </view> 
+                <view class="somall">
+                    <image class="imgs" src="{{item.cat_icon}}" mode="widthFix" />
+                    <view class="wen">
+                        {{item.cat_name}}
+                    </view>
+                </view>
             </view>
         </view>
     </scroll-view>
 </view>
-  

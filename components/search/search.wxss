@@ -1,9 +1,10 @@
-.search{
-   
+.search {
+
     background: #eb4450;
-    padding:15rpx;
+    padding: 15rpx;
 }
-.inputs{
+
+.inputs {
     background: #fff;
     height: 60rpx;
     border-radius: 10rpx;
@@ -11,6 +12,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color:#666;
+    color: #666;
 }
-
