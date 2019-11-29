@@ -1,1 +1,57 @@
-/* pages/category/index.wxss */
+.cate_view{
+  height: calc(100vh - 80rpx);
+
+  display: flex; 
+}
+.cate_left{
+    width: 200rpx;
+
+     /* 不超的时候就没有滚动条 超出了就有滚动条 */
+    overflow: auto;
+}
+.cate_right{
+    flex:1;
+    
+    overflow: auto;
+}
+.menu_item {
+    height: 80rpx;
+    font-size: 28rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+.wen{
+    height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26rpx;
+}
+.menu_main{
+    display: flex;
+  flex-wrap: wrap;
+    
+}
+
+.xiaotu{
+    width: 33.33%;
+  text-align: center;
+  font-size: 24rpx;
+  color: #666666;
+}
+
+.imgs{
+    width: 50%;
+}
+.goods_group_title{
+    height: 80rpx;
+    display: flex;
+   
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    font-size: 26rpx;
+}

@@ -1,66 +1,29 @@
-// pages/category/index.js
+import request from "../../request/request"
 Page({
-
-  /**
-   * 页面的初始数据
-   */
-  data: {
-
+  // wxml中 只能找到 data中的变量的数据 
+  // data 中应该只存放 视图渲染 要用到的数据  
+  // data中的数据越多 页面越卡！！！
+  // 视图要使用的全局数据
+  data:{
+    // 左侧的内容
+    leftMenus: [],
+    // 右侧的内容 列表
+    rightGoods: []
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  // 全局数据
+  Cates: [],
+  onLoad(){
+    request({url:"categories"}).then(res=>{
+      this.Cates = res.data.message;
+      this.setData({
+        // 获取对象中的某一项
+        leftMenus:this.Cates.map(v=>v.cat_name),
+        rightGoods:this.Cates[0].children
+        
+      })
+      console.log(this.data.rightGoods);
+    })
+      
+      
   }
 })
