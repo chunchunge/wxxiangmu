@@ -1,66 +1,37 @@
-// pages/goods_list/index.js
+import request from "../../request/request";
 Page({
-
-  /**
-   * 页面的初始数据
-   */
+   // 全局的接口参数
+   Params: {
+    // 查询关键字 "小米"
+    query: "",
+    // 分类id
+    cid: -1,
+    // 页码 第几页 
+    pagenum: 1,
+    // 页容量 -> 每一页可以放几条数据
+    pagesize: 10
+  },
+  
   data: {
-
+    // 要显示的商品列表
+    goods:[]
   },
+  onLoad(options) {
+    this.Params.cid = options.cid;
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+    this.getList();
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+   // 获取商品列表数据
+   getList() {
+    request({
+      url: "goods/search",
+      data: this.Params
+    })
+    .then(res=>{
+      console.log(res);
+      this.setData({
+        goods:res.data.message.goods
+      })
+    })
   }
 })

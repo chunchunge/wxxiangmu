@@ -10,7 +10,7 @@
     <scroll-view scroll-y scroll-top="{{scrollTop}}" class="cate_right">
         <view class="menu_main " wx:for="{{rightGoods}}" wx:key="cat_id">
             <view class="goods_group_title"> / {{item.cat_name}} / </view>
-            <navigator url="/pages/goods_list/index?iiiddd=111222" class="xiaotu" wx:for="{{item.children}}" wx:key="cat_id">
+            <navigator url="/pages/goods_list/index?cid={{item.cat_id}}" class="xiaotu" wx:for="{{item.children}}" wx:key="cat_id">
                 <view class="somall">
                     <image class="imgs" src="{{item.cat_icon}}" mode="widthFix" />
                     <view class="wen">
