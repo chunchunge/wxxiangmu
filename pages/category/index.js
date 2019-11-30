@@ -27,7 +27,7 @@ Page({
       if (Date.now() - cates.time > 10 * 1000) {
         // 数据过期了
         console.log("数据过期了");
-        console.log("重新发送请求获取数据和存储数据");
+       
         this.getCates();
       } else {
         // 没有过期
