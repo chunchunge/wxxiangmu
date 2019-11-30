@@ -51,6 +51,15 @@ Page({
           // 发送请求获取下一页的数据
           this.getList();
         }
-      }
+      },
+      // 下拉刷新
+    onPullDownRefresh() {
+      // console.log("狗丢了怎么办？？？  搜狗搜索！！！");
+      this.Params.pagenum=1;
+      this.setData({
+        goods:[]
+      })
+      this.getList();
+    }
   
 })
