@@ -11,7 +11,8 @@ Page({
     // 页容量 -> 每一页可以放几条数据
     pagesize: 10
   },
-  
+   // 总页数
+   TotalPages: 1,
   data: {
     // 要显示的商品列表
     goods:[]
@@ -28,10 +29,28 @@ Page({
       data: this.Params
     })
     .then(res=>{
-      console.log(res);
+      const { goods } = this.data;
+      // console.log(res);
       this.setData({
-        goods:res.data.message.goods
+      // 当我们做分页了  总的数据 应该是不断 追加的！！！ 
+      goods: [...goods, ...res.data.message.goods]
       })
+       // 计算总页数
+       this.TotalPages = Math.ceil(res.data.message.total / this.Params.pagesize);
     })
-  }
+  },
+      // 滚动条 触底事件
+      onReachBottom() {
+        // 1 判断还有没有下一页数据
+        if (this.Params.pagenum >= this.TotalPages) {
+          // 没有下一页数据
+          console.log("没有下一页数据");
+        } else {
+          // 有下一页数据
+          this.Params.pagenum++;
+          // 发送请求获取下一页的数据
+          this.getList();
+        }
+      }
+  
 })
