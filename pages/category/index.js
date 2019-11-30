@@ -16,6 +16,32 @@ Page({
   // 全局数据
   Cates: [],
   onLoad() {
+    // ! 获取缓存中的数据  默认值 是空字符串 
+    const cates = wx.getStorageSync('cates');
+    if (!cates) {
+      console.log("没数据 发送请求");
+      this.getCates();
+    } else {
+      // console.log("有数据");
+      // 判断数据有没有过期 10s
+      if (Date.now() - cates.time > 10 * 1000) {
+        // 数据过期了
+        console.log("数据过期了");
+        console.log("重新发送请求获取数据和存储数据");
+        this.getCates();
+      } else {
+        // 没有过期
+        console.log("没有过期");
+        this.Cates = cates.list;
+        this.setData({
+          leftMenus: this.Cates.map(v => v.cat_name),
+          // 右侧的内容
+          rightGoods: this.Cates[this.data.currentIndex].children
+        })
+      }
+    }
+  },
+  getCates(){
     request({ url: "categories" }).then(res => {
       this.Cates = res.data.message;
       this.setData({
@@ -24,6 +50,7 @@ Page({
         rightGoods: this.Cates[this.data.currentIndex].children
       });
       console.log(this.data.rightGoods);
+      wx.setStorageSync("cates", { list: this.Cates, time: Date.now() });
     });
   },
   handleMenuTap(e) {
