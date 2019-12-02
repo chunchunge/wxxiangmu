@@ -1,66 +1,37 @@
-// pages/cart/index.js
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
-  data: {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  handleFinalGet(){
+   wx.getSetting({
+      success: (result) => {
+      // 获取是否获取授权信息
+      const auth=result.authSetting['scope.address'];
+        // 当auth为undifinr或者为true时都可直接获取用户的地址
+        if(auth===undefined||auth===true){
+          wx.chooseAddress({
+            success: (result1) => {
+              console.log(result1);
+              
+            }
+          });
+            
+        }else{
+          // 用户曾经点击过拒绝
+          wx.openSetting({
+            success: (result2) => {
+              // 直接获取收货地址
+             wx.chooseAddress({
+                success: (result1) => {
+                  console.log(result1);
+                  
+                }
+              });
+                
+            }
+          });
+            
+        }
+      }
+    });
+       
   }
 })

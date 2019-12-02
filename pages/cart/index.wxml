@@ -1,2 +1,2 @@
-<!--pages/cart/index.wxml-->
-<text>pages/cart/index.wxml</text>
+
+  <button bindtap="handleFinalGet" >最终的版本</button>
