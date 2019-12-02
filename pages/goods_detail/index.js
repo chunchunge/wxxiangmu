@@ -20,5 +20,16 @@ Page({
         goodsInfo:res.data.message
       })
     })
+  },
+  handlePreviewImg(e){
+      // 当前被点击的大图片路径
+      const current = e.currentTarget.dataset.src;
+     // 要预览的整个图片列表
+     const urls = this.data.goodsInfo.pics.map(v => v.pics_big);
+     // 开始预览
+     wx.previewImage({
+       current,
+       urls
+     });
   }
 })

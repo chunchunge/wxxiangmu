@@ -13,6 +13,6 @@
 }
 .tabbar_title .title_item.active{
   border-bottom: 3rpx solid currentColor;
-  color: var(--themeColor);
+  color:  #eb4450;
 }
 .tabbar_content{}
