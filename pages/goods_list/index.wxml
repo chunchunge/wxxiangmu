@@ -1,3 +1,10 @@
+  <view>
+    <Tabbar 
+    bindtitleChange="titleChange"
+    currentIndex="{{currentIndex}}" 
+    titles="{{titles}}">
+    <view wx:if="{{currentIndex===0}}" >
+  
 <!-- 商品列表 开始 -->
 <view class="goods_view">
   <navigator url="/pages/goods_detail/index?goods_id={{item.goods_id}}" wx:for="{{goods}}" wx:key="goods_id" class="goods_item">
@@ -11,3 +18,8 @@
   </navigator>
 </view>
 <!-- 商品列表 结束 --> 
+    </view>
+    <view wx:elif="{{currentIndex===1}}"  >1</view>
+    <view wx:else>2</view>
+</Tabbar>
+</view>  

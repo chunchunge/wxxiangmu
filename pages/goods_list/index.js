@@ -15,7 +15,23 @@ Page({
    TotalPages: 1,
   data: {
     // 要显示的商品列表
-    goods:[]
+    goods:[],
+    titles: [
+      "综合",
+      "销量",
+      "价格"
+    ],
+    // 要显示的索引
+    currentIndex: 0
+
+  },
+  titleChange(e){
+    // console.log(e);
+    const {index}=e.detail;
+
+    this.setData({
+      currentIndex:index
+    })
   },
   onLoad(options) {
     this.Params.cid = options.cid;
