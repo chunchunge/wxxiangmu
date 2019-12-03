@@ -31,7 +31,15 @@ Page({
   // }
   data: {
     // 用户收货地址
-    address: {}
+    address: {},
+    // 购物车数组
+    carts:[]
+  },
+  onLoad(){
+    const carts=wx.getStorageSync("carts")||[];
+    this.setData({
+      carts
+    })
   },
   // 监听页面的显示
   onShow() {
