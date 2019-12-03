@@ -35,7 +35,9 @@ Page({
     // 购物车数组
     carts:[],
     // 商品的总价格
-    totalPrice: 0
+    totalPrice: 0,
+    // 结算的数量
+    nums: 0
   },
   // 监听页面的显示
   onShow() {
@@ -68,12 +70,14 @@ Page({
 
 
     let totalPrice = 0;
+    let nums=0;
     carts.forEach(v => {
       if(v.isChecked){
         totalPrice += v.nums * v.goods_price
-       
+        // 我们要的是总的数量 而不是要购买的种类！！
+        nums += v.nums
 this.setData({
-      totalPrice
+      totalPrice,nums
     })
       }
     })
@@ -86,5 +90,22 @@ this.setData({
   console.log(this.data.totalPrice);
     
     
-  }
+  },
+   // 单个商品的选中事件
+   checkboxChange(e) {
+    /* 
+    1 如何知道用户点击的是哪个 商品呢 （可以根据 id 或者索引来获取到该元素 ）
+     */
+    const { index } = e.currentTarget.dataset;
+    let { carts } = this.data;
+    // 对选中状态 做取反
+    carts[index].isChecked=!carts[index].isChecked;
+    this.setData({
+      carts
+    });
+    wx.setStorageSync("carts", carts); 
+
+    // 重新计算总价格   小程序中没有计算属性（页面中没有计算属性，组件中却是有计算属性！！！）
+    this.countAll(carts);
+   }
 })
