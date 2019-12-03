@@ -11,10 +11,8 @@ Page({
   //         wx.chooseAddress({
   //           success: (result1) => {
   //             console.log(result1);
-
   //           }
   //         });
-
   //       }else{
   //         // 用户曾经点击过拒绝
   //         wx.openSetting({
@@ -23,17 +21,13 @@ Page({
   //            wx.chooseAddress({
   //               success: (result1) => {
   //                 console.log(result1);
-
   //               }
   //             });
-
   //           }
   //         });
-
   //       }
   //     }
   //   });
-
   // }
   data: {
     // 用户收货地址
@@ -45,7 +39,7 @@ Page({
     const address = wx.getStorageSync("address") || {};
     this.setData({
       address
-    })
+    });
   },
   async handleFinalGet() {
     // 获取用户的授权状态

@@ -31,5 +31,30 @@ Page({
        current,
        urls
      });
+  },
+  handleGoodsAdd(){
+    // 首先获取购物车里面的数据
+    let carts=wx.getStorageSync("carts")||[];
+    const index = carts.findIndex(v => v.goods_id === this.data.goodsInfo.goods_id);
+    // 判断所添加的商品是否已经存在
+    if(index===-1){
+      // 不存在的话就添加
+      carts.unshift({
+        ...this.data.goodsInfo,
+        nums:1
+      })
+    }else{
+// 已经存在的话就将数量++
+carts[index].nums++;
+    }
+      
+       // 4 重新添加到缓存中
+    wx.setStorageSync("carts", carts);
+
+    wx.showToast({
+      title: '添加成功',
+      mask: true
+    });
+
   }
 })
